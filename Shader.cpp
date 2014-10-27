@@ -142,6 +142,8 @@ void Shader::Draw(GLenum mode, GLint first, GLsizei count){
 		int h = handle[hvec[vecptr]];
 		glUniform3f(h, (*vecptr).x, (*vecptr).y, (*vecptr).z);
 	}
+    
+    
 	
 	glDrawArrays(mode, first, count);
 	for(map<VBO*, string>::iterator it = hvbo.begin(); it != hvbo.end(); ++it){

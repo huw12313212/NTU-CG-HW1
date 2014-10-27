@@ -1,7 +1,9 @@
 // Implement a fragment shader for Gauraud shading
 #version 120
+#extension GL_EXT_gpu_shader4 : require
 
-varying vec3 fragcolor;
+flat varying vec3 fragcolor;
+
 
 void main()
 {

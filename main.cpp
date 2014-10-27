@@ -15,8 +15,10 @@
 #include <stdio.h>
 #include <errno.h>
 
-enum{GAURAUD}; // enumerate the shading styles
-#define SHADER_NUM 1 // determine number of shaders
+enum{GAURAUD = 0,
+    FLAT = 1,
+    PHONG = 2}; // enumerate the shading styles
+#define SHADER_NUM 3 // determine number of shaders
 
 using namespace glm;
 using namespace std;
@@ -67,12 +69,14 @@ int main( void ){
 
 	// Read the models
 	loadModel("models/balls.tri");
-    loadModel("models/F1.tri");
-
+    loadModel("models/Teapot.tri");
+    loadModel("models/Plant.tri");
 
 	// Create and compile our GLSL program from the shaders
 	Shader shader[SHADER_NUM];
 	shader[GAURAUD].CreateProgram("gauraud_shading.vertexshader", "gauraud_shading.fragmentshader");
+    shader[FLAT].CreateProgram("flat_shading.vertexshader", "flat_shading.fragmentshader");
+    shader[PHONG].CreateProgram("phong_shading.vertexshader", "phong_shading.fragmentshader");
 	// get associated handle for uniform variables and attribute variables in the shader program
 	string univars[6]={"PVM", "V", "M", "normat", "ligposwld", "ligcolor"};
 	string attrvars[3]={"vertposmdl", "vertnormdl", "vertcolor"};
@@ -122,35 +126,53 @@ int main( void ){
 		shader[s].BindMatrix(&(transform.modelmat), "M");
 		shader[s].BindMatrix(&(transform.viewmat), "V");
 		shader[s].BindMatrix(&(transform.normat), "normat");
+        
+        
 	}
 	//the viewing matrix (camera setting) is currently fixed
 	//you can also change it in the render loop
-	transform.SetViewMatrix(vec3(0, 0, 6.0), vec3(0.0, 0.0, -40.0), vec3(0.0, 1.0, 0.0));
+	
+    transform.SetViewMatrix(vec3(0, 0, 6.0), vec3(0.0, 0.0, -40.0), vec3(0.0, 1.0, 0.0));
+    
 	// start to render
 	vec3 rot(0.0, 0.0, 0.0);
 	
 	CtrlParam ctrlparam;
+   // glShadeModel(GL_FLAT);
 
     while (!glfwWindowShouldClose(window))
     {
+       // glShadeModel(GL_FLAT)
 		glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-		// the projection may changing
-#if 0
-		// update transformation according to keyboard/mouse control, see control.hpp/cpp
-		CatchEvent(window);
-		UpdateCtrlParams(ctrlparam);
-		transform.SetProjectionMatrix(ctrlparam.dfov);	
-		transform.SetModelMatrix(ctrlparam.size, models[0].center, ctrlparam.trans, ctrlparam.rot);
-#endif
-#if 1
+		
 		transform.SetProjectionMatrix(0);
-		transform.SetModelMatrix(0.002739, models[0].center, vec3(0.8, -0.7, 2.79), vec3(0, rot.y, 0) );
-#endif
+		transform.SetModelMatrix(0.002, models[0].center, vec3(-0.9, 0.5, 2.79), vec3(0, 0, 0) );
 		transform.UpdatePVM();
 		transform.UpdateNormalMatrix();
-		shader[GAURAUD].Draw(GL_TRIANGLES, vertbuf.offset[0] / sizeof(vec3), models[0].vertices.size());
+		shader[GAURAUD].Draw(GL_TRIANGLES, vertbuf.offset[GAURAUD] / sizeof(vec3), models[GAURAUD].vertices.size());
+        
+        transform.SetProjectionMatrix(0);
+        transform.SetModelMatrix(0.002, models[0].center, vec3(-0.9, -0.5, 2.79), vec3(0, 0, 0) );
+        transform.UpdatePVM();
+        transform.UpdateNormalMatrix();
+        //glShadeModel(GL_FLAT);
+        shader[FLAT].Draw(GL_TRIANGLES, vertbuf.offset[GAURAUD] / sizeof(vec3), models[GAURAUD].vertices.size());
         
         
+        transform.SetProjectionMatrix(0);
+        transform.SetModelMatrix(0.002, models[0].center, vec3(0.9, 0.5, 2.79), vec3(0, 0, 0) );
+        transform.UpdatePVM();
+        transform.UpdateNormalMatrix();
+        shader[PHONG].Draw(GL_TRIANGLES, vertbuf.offset[GAURAUD] / sizeof(vec3), models[GAURAUD].vertices.size());
+    
+        
+        /*
+        transform.SetModelMatrix(0.0439, models[1].center, vec3(-0.9, -0.5, 2.79), vec3(-90, 0, rot.y) );
+        transform.UpdatePVM();
+        transform.UpdateNormalMatrix();
+        //transform.s
+        shader[FLAT].Draw(GL_TRIANGLES, vertbuf.offset[FLAT] / sizeof(vec3), models[FLAT].vertices.size());
+        */
 
         glfwSwapBuffers(window);
         glfwPollEvents();
