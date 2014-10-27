@@ -10,6 +10,7 @@ attribute vec3 vertnormdl;
 flat varying vec3 fragcolor;
 
 
+
 //constant for the whole mesh
 uniform mat4 PVM;
 uniform mat4 M;
@@ -35,6 +36,9 @@ void main(){
     fragcolor = vec3(dotValue) * vertcolor;
 
 	//output clipping pos to rasterizer
+
+
+
 	gl_Position = PVM * vec4(vertposmdl, 1.0);
 	
 }

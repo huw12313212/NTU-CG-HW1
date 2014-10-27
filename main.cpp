@@ -69,8 +69,8 @@ int main( void ){
 
 	// Read the models
 	loadModel("models/balls.tri");
-    loadModel("models/Teapot.tri");
-    loadModel("models/Plant.tri");
+    loadModel("models/Fighter.tri");
+    //loadModel("models/Plant.tri");
 
 	// Create and compile our GLSL program from the shaders
 	Shader shader[SHADER_NUM];
@@ -139,6 +139,15 @@ int main( void ){
 	
 	CtrlParam ctrlparam;
    // glShadeModel(GL_FLAT);
+    
+    
+    float counter = 0;
+    float X1 = -0.9f;
+    float X2 = 0.9f;
+    float Y1 = -0.3;
+    float Y2 = -0.9;
+    
+    
 
     while (!glfwWindowShouldClose(window))
     {
@@ -146,38 +155,92 @@ int main( void ){
 		glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		
 		transform.SetProjectionMatrix(0);
-		transform.SetModelMatrix(0.002, models[0].center, vec3(-0.9, 0.5, 2.79), vec3(0, 0, 0) );
+		transform.SetModelMatrix(0.002, models[0].center, vec3(-0.9, 0.5, 2.79), vec3(0, rot.y, 0) );
 		transform.UpdatePVM();
 		transform.UpdateNormalMatrix();
-		shader[GAURAUD].Draw(GL_TRIANGLES, vertbuf.offset[GAURAUD] / sizeof(vec3), models[GAURAUD].vertices.size());
+		shader[FLAT].Draw(GL_TRIANGLES, vertbuf.offset[0] / sizeof(vec3), models[0].vertices.size());
         
         transform.SetProjectionMatrix(0);
-        transform.SetModelMatrix(0.002, models[0].center, vec3(-0.9, -0.5, 2.79), vec3(0, 0, 0) );
+        transform.SetModelMatrix(0.002, models[0].center, vec3(0, 0.5, 2.79), vec3(0, rot.y, 0) );
         transform.UpdatePVM();
         transform.UpdateNormalMatrix();
-        //glShadeModel(GL_FLAT);
-        shader[FLAT].Draw(GL_TRIANGLES, vertbuf.offset[GAURAUD] / sizeof(vec3), models[GAURAUD].vertices.size());
+        shader[GAURAUD].Draw(GL_TRIANGLES, vertbuf.offset[0] / sizeof(vec3), models[0].vertices.size());
         
         
         transform.SetProjectionMatrix(0);
-        transform.SetModelMatrix(0.002, models[0].center, vec3(0.9, 0.5, 2.79), vec3(0, 0, 0) );
+        transform.SetModelMatrix(0.002, models[0].center, vec3(0.9, 0.5, 2.79), vec3(0, rot.y, 0) );
         transform.UpdatePVM();
         transform.UpdateNormalMatrix();
-        shader[PHONG].Draw(GL_TRIANGLES, vertbuf.offset[GAURAUD] / sizeof(vec3), models[GAURAUD].vertices.size());
+        shader[PHONG].Draw(GL_TRIANGLES, vertbuf.offset[0] / sizeof(vec3), models[0].vertices.size());
+        
+        
     
-        
-        /*
-        transform.SetModelMatrix(0.0439, models[1].center, vec3(-0.9, -0.5, 2.79), vec3(-90, 0, rot.y) );
+        transform.SetProjectionMatrix(0);
+        transform.SetModelMatrix(0.02, models[0].center, vec3(0.0, -0.5, 2.79), vec3(rot.y/10, rot.y/5, rot.y/3) );
         transform.UpdatePVM();
         transform.UpdateNormalMatrix();
-        //transform.s
-        shader[FLAT].Draw(GL_TRIANGLES, vertbuf.offset[FLAT] / sizeof(vec3), models[FLAT].vertices.size());
-        */
+        shader[GAURAUD].Draw(GL_TRIANGLES, vertbuf.offset[0] / sizeof(vec3), models[0].vertices.size());
+        
 
+        transform.SetProjectionMatrix(0);
+        
+        
+        
+        
+        float phase1 = 60;
+        float phase2 = 90;
+        float phase3 = 150;
+        float phase4 = 180;
+        
+        counter++;
+        counter = (int)counter % (int)phase4;
+        
+        if(counter<phase1)
+        {
+           // counter++;
+            float ratio = counter / phase1;
+                ratio = 1-((1-ratio)*(1-ratio));
+            transform.SetModelMatrix(0.02, models[1].center, vec3(X1*(1-ratio)+X2*ratio , Y1, 2.79), vec3(0, 0, 0) );
+        }
+        else if(counter < phase2)
+        {
+            //counter++;
+            float ratio = (counter - phase1) / (phase2 - phase1);
+                ratio = 1-((1-ratio)*(1-ratio));
+            
+            transform.SetModelMatrix(0.02, models[1].center, vec3(X2 , Y1*(1-ratio)+Y2*ratio, 2.79), vec3(0, 0, 0*(1-ratio)+-180*ratio));
+        }
+        else if(counter < phase3)
+        {
+            //counter++;
+            float ratio = (counter - phase2) / (phase3 - phase2);
+            ratio = 1-((1-ratio)*(1-ratio));
+            transform.SetModelMatrix(0.02, models[1].center, vec3(X1*ratio + X2*(1-ratio) , Y2, 2.79), vec3(0, 0, -180));
+        }
+        else if(counter < phase4)
+        {
+            float ratio = (counter - phase3) / (phase4 - phase3);
+            ratio = 1-((1-ratio)*(1-ratio));
+            transform.SetModelMatrix(0.02, models[1].center, vec3(X1 , Y2*(1-ratio)+Y1*ratio, 2.79), vec3(0, 0, -180*(1-ratio)-360*ratio));
+        }
+        
+        
+        
+        transform.UpdatePVM();
+        transform.UpdateNormalMatrix();
+        shader[PHONG].Draw(GL_TRIANGLES, vertbuf.offset[1] / sizeof(vec3), models[1].vertices.size());
+        
+        
+        
+
+        
+       // if()
+        
+        
         glfwSwapBuffers(window);
         glfwPollEvents();
 
-		rot.y += 5.0;
+		rot.y += 2.0;
     }
     glfwDestroyWindow(window);
     glfwTerminate();
