@@ -1,0 +1,48 @@
+//This is a vertex shader for "Gauraud Shading"
+#version 120
+// Input vert data, different for all executions of this shader.
+attribute vec3 vertposmdl;
+attribute vec3 vertcolor;
+attribute vec3 vertnormdl;
+
+//varibles interpolated on frag shader
+varying vec3 fragcolor;
+
+//constant for the whole mesh
+uniform mat4 PVM;
+uniform mat4 M;
+uniform mat4 V;
+uniform mat4 normat;
+uniform vec3 ligposwld;
+uniform vec3 ligcolor;
+
+void main(){
+    
+	vec3 vertposcam = ( V * M * vec4(vertposmdl, 1.0) ).xyz;
+
+	vec3 viewdircam = vec3(0.0, 0.0, 0.0) - vertposcam; 
+
+	vec3 ligposcam = ( V * vec4(ligposwld, 1.0) ).xyz;
+	vec3 ligdircam = ligposcam + viewdircam;
+	
+	vec3 vertnormcam = ( normat * vec4(vertnormdl, 0.0) ).xyz;
+
+	vec3 N = normalize(vertnormcam);
+	vec3 L = normalize(ligdircam);
+	vec3 V = normalize(viewdircam);
+	vec3 R = normalize( reflect(-L, N) );
+
+	vec3 ambcolor = 0.1 * vertcolor;
+	
+	float cosT = max( dot(L, N), 0 );
+	vec3 diffcolor = vertcolor * ligcolor * cosT;
+
+	float cosA = max( dot(R, V), 0 );
+	vec3 specolor = ligcolor * pow( cosA, 5 );
+
+	fragcolor = ( ambcolor + diffcolor + specolor );
+
+	//output clipping pos to rasterizer
+	gl_Position = PVM * vec4(vertposmdl, 1.0);
+	
+}

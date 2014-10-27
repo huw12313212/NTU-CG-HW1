@@ -1,0 +1,9 @@
+// Implement a fragment shader for Gauraud shading
+#version 120
+
+varying vec3 fragcolor;
+
+void main()
+{
+	gl_FragColor = vec4( fragcolor, 1.0 );
+}

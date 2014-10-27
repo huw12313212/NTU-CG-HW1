@@ -7,7 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8A6DE53E19FE32D600CAD481 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8A6DE53D19FE32D600CAD481 /* main.cpp */; };
+		8A6DE54519FE332F00CAD481 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A6DE54419FE332F00CAD481 /* OpenGL.framework */; };
+		8A6DE54719FE333500CAD481 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A6DE54619FE333500CAD481 /* GLUT.framework */; };
+		8A6DE54919FE334900CAD481 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A6DE54819FE334900CAD481 /* Cocoa.framework */; };
+		8A6DE59C19FE366500CAD481 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A6DE59B19FE366500CAD481 /* IOKit.framework */; };
+		8A6DE59E19FE366B00CAD481 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A6DE59D19FE366B00CAD481 /* CoreVideo.framework */; };
+		8A6DE5A219FE3AFC00CAD481 /* libglfw3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A6DE5A119FE3AFC00CAD481 /* libglfw3.a */; };
+		8A6DE5CA19FE473F00CAD481 /* libGLEW.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A6DE5C919FE473F00CAD481 /* libGLEW.a */; };
+		8A6DE61419FE4E6D00CAD481 /* controls.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8A6DE5F419FE4E6D00CAD481 /* controls.cpp */; };
+		8A6DE61519FE4E6D00CAD481 /* Light.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8A6DE5F919FE4E6D00CAD481 /* Light.cpp */; };
+		8A6DE61619FE4E6D00CAD481 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8A6DE5FB19FE4E6D00CAD481 /* main.cpp */; };
+		8A6DE61719FE4E6D00CAD481 /* Shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8A6DE60C19FE4E6D00CAD481 /* Shader.cpp */; };
+		8A6DE61819FE4E6D00CAD481 /* Transform.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8A6DE60E19FE4E6D00CAD481 /* Transform.cpp */; };
+		8A6DE61919FE4E6D00CAD481 /* TRIModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8A6DE61019FE4E6D00CAD481 /* TRIModel.cpp */; };
+		8A6DE61A19FE4E6D00CAD481 /* VBO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8A6DE61219FE4E6D00CAD481 /* VBO.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,7 +37,47 @@
 
 /* Begin PBXFileReference section */
 		8A6DE53A19FE32D600CAD481 /* CGHW1 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CGHW1; sourceTree = BUILT_PRODUCTS_DIR; };
-		8A6DE53D19FE32D600CAD481 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		8A6DE54419FE332F00CAD481 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		8A6DE54619FE333500CAD481 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
+		8A6DE54819FE334900CAD481 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		8A6DE59B19FE366500CAD481 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
+		8A6DE59D19FE366B00CAD481 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		8A6DE5A119FE3AFC00CAD481 /* libglfw3.a */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.objfile"; name = libglfw3.a; path = "../Downloads/glfw-3.0.4/build/src/libglfw3.a"; sourceTree = "<group>"; };
+		8A6DE5C919FE473F00CAD481 /* libGLEW.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGLEW.a; path = ../../../usr/local/Cellar/glew/1.11.0/lib/libGLEW.a; sourceTree = "<group>"; };
+		8A6DE5F419FE4E6D00CAD481 /* controls.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = controls.cpp; sourceTree = "<group>"; };
+		8A6DE5F519FE4E6D00CAD481 /* controls.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = controls.hpp; sourceTree = "<group>"; };
+		8A6DE5F619FE4E6D00CAD481 /* gauraud_shading.fragmentshader */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = gauraud_shading.fragmentshader; sourceTree = "<group>"; };
+		8A6DE5F719FE4E6D00CAD481 /* gauraud_shading.vertexshader */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = gauraud_shading.vertexshader; sourceTree = "<group>"; };
+		8A6DE5F919FE4E6D00CAD481 /* Light.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Light.cpp; sourceTree = "<group>"; };
+		8A6DE5FA19FE4E6D00CAD481 /* Light.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Light.h; sourceTree = "<group>"; };
+		8A6DE5FB19FE4E6D00CAD481 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		8A6DE5FD19FE4E6D00CAD481 /* balls.tri */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = balls.tri; sourceTree = "<group>"; };
+		8A6DE5FE19FE4E6D00CAD481 /* Car_road.tri */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Car_road.tri; sourceTree = "<group>"; };
+		8A6DE5FF19FE4E6D00CAD481 /* Church_s.tri */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Church_s.tri; sourceTree = "<group>"; };
+		8A6DE60019FE4E6D00CAD481 /* Csie.tri */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Csie.tri; sourceTree = "<group>"; };
+		8A6DE60119FE4E6D00CAD481 /* Easter.tri */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Easter.tri; sourceTree = "<group>"; };
+		8A6DE60219FE4E6D00CAD481 /* F1.tri */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = F1.tri; sourceTree = "<group>"; };
+		8A6DE60319FE4E6D00CAD481 /* Fighter.tri */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Fighter.tri; sourceTree = "<group>"; };
+		8A6DE60419FE4E6D00CAD481 /* Gym.tri */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Gym.tri; sourceTree = "<group>"; };
+		8A6DE60519FE4E6D00CAD481 /* Kangaroo.tri */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Kangaroo.tri; sourceTree = "<group>"; };
+		8A6DE60619FE4E6D00CAD481 /* Mig27.tri */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Mig27.tri; sourceTree = "<group>"; };
+		8A6DE60719FE4E6D00CAD481 /* Plane.tri */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Plane.tri; sourceTree = "<group>"; };
+		8A6DE60819FE4E6D00CAD481 /* Plant.tri */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Plant.tri; sourceTree = "<group>"; };
+		8A6DE60919FE4E6D00CAD481 /* Readme.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Readme.txt; sourceTree = "<group>"; };
+		8A6DE60A19FE4E6D00CAD481 /* Teapot.tri */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Teapot.tri; sourceTree = "<group>"; };
+		8A6DE60B19FE4E6D00CAD481 /* Tomcat.tri */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Tomcat.tri; sourceTree = "<group>"; };
+		8A6DE60C19FE4E6D00CAD481 /* Shader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Shader.cpp; sourceTree = "<group>"; };
+		8A6DE60D19FE4E6D00CAD481 /* Shader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shader.h; sourceTree = "<group>"; };
+		8A6DE60E19FE4E6D00CAD481 /* Transform.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Transform.cpp; sourceTree = "<group>"; };
+		8A6DE60F19FE4E6D00CAD481 /* Transform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Transform.h; sourceTree = "<group>"; };
+		8A6DE61019FE4E6D00CAD481 /* TRIModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TRIModel.cpp; sourceTree = "<group>"; };
+		8A6DE61119FE4E6D00CAD481 /* TRIModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRIModel.h; sourceTree = "<group>"; };
+		8A6DE61219FE4E6D00CAD481 /* VBO.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VBO.cpp; sourceTree = "<group>"; };
+		8A6DE61319FE4E6D00CAD481 /* VBO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBO.h; sourceTree = "<group>"; };
+		8A6DE61B19FE598600CAD481 /* flat_shading.fragmentshader */ = {isa = PBXFileReference; lastKnownFileType = text; path = flat_shading.fragmentshader; sourceTree = "<group>"; };
+		8A6DE61C19FE598600CAD481 /* flat_shading.vertexshader */ = {isa = PBXFileReference; lastKnownFileType = text; path = flat_shading.vertexshader; sourceTree = "<group>"; };
+		8A6DE61D19FE598600CAD481 /* phong_shading.fragmentshader */ = {isa = PBXFileReference; lastKnownFileType = text; path = phong_shading.fragmentshader; sourceTree = "<group>"; };
+		8A6DE61E19FE598600CAD481 /* phong_shading.vertexshader */ = {isa = PBXFileReference; lastKnownFileType = text; path = phong_shading.vertexshader; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +85,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A6DE59E19FE366B00CAD481 /* CoreVideo.framework in Frameworks */,
+				8A6DE59C19FE366500CAD481 /* IOKit.framework in Frameworks */,
+				8A6DE54919FE334900CAD481 /* Cocoa.framework in Frameworks */,
+				8A6DE54719FE333500CAD481 /* GLUT.framework in Frameworks */,
+				8A6DE5CA19FE473F00CAD481 /* libGLEW.a in Frameworks */,
+				8A6DE54519FE332F00CAD481 /* OpenGL.framework in Frameworks */,
+				8A6DE5A219FE3AFC00CAD481 /* libglfw3.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -41,8 +101,35 @@
 		8A6DE53119FE32D600CAD481 = {
 			isa = PBXGroup;
 			children = (
+				8A6DE59D19FE366B00CAD481 /* CoreVideo.framework */,
+				8A6DE59B19FE366500CAD481 /* IOKit.framework */,
+				8A6DE54819FE334900CAD481 /* Cocoa.framework */,
+				8A6DE54619FE333500CAD481 /* GLUT.framework */,
+				8A6DE54419FE332F00CAD481 /* OpenGL.framework */,
 				8A6DE53C19FE32D600CAD481 /* CGHW1 */,
 				8A6DE53B19FE32D600CAD481 /* Products */,
+				8A6DE5A119FE3AFC00CAD481 /* libglfw3.a */,
+				8A6DE5C919FE473F00CAD481 /* libGLEW.a */,
+				8A6DE5F419FE4E6D00CAD481 /* controls.cpp */,
+				8A6DE5F519FE4E6D00CAD481 /* controls.hpp */,
+				8A6DE5F619FE4E6D00CAD481 /* gauraud_shading.fragmentshader */,
+				8A6DE5F719FE4E6D00CAD481 /* gauraud_shading.vertexshader */,
+				8A6DE5F919FE4E6D00CAD481 /* Light.cpp */,
+				8A6DE5FA19FE4E6D00CAD481 /* Light.h */,
+				8A6DE5FB19FE4E6D00CAD481 /* main.cpp */,
+				8A6DE5FC19FE4E6D00CAD481 /* models */,
+				8A6DE60C19FE4E6D00CAD481 /* Shader.cpp */,
+				8A6DE60D19FE4E6D00CAD481 /* Shader.h */,
+				8A6DE60E19FE4E6D00CAD481 /* Transform.cpp */,
+				8A6DE60F19FE4E6D00CAD481 /* Transform.h */,
+				8A6DE61019FE4E6D00CAD481 /* TRIModel.cpp */,
+				8A6DE61119FE4E6D00CAD481 /* TRIModel.h */,
+				8A6DE61219FE4E6D00CAD481 /* VBO.cpp */,
+				8A6DE61319FE4E6D00CAD481 /* VBO.h */,
+				8A6DE61B19FE598600CAD481 /* flat_shading.fragmentshader */,
+				8A6DE61C19FE598600CAD481 /* flat_shading.vertexshader */,
+				8A6DE61D19FE598600CAD481 /* phong_shading.fragmentshader */,
+				8A6DE61E19FE598600CAD481 /* phong_shading.vertexshader */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,9 +144,30 @@
 		8A6DE53C19FE32D600CAD481 /* CGHW1 */ = {
 			isa = PBXGroup;
 			children = (
-				8A6DE53D19FE32D600CAD481 /* main.cpp */,
 			);
 			path = CGHW1;
+			sourceTree = "<group>";
+		};
+		8A6DE5FC19FE4E6D00CAD481 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				8A6DE5FD19FE4E6D00CAD481 /* balls.tri */,
+				8A6DE5FE19FE4E6D00CAD481 /* Car_road.tri */,
+				8A6DE5FF19FE4E6D00CAD481 /* Church_s.tri */,
+				8A6DE60019FE4E6D00CAD481 /* Csie.tri */,
+				8A6DE60119FE4E6D00CAD481 /* Easter.tri */,
+				8A6DE60219FE4E6D00CAD481 /* F1.tri */,
+				8A6DE60319FE4E6D00CAD481 /* Fighter.tri */,
+				8A6DE60419FE4E6D00CAD481 /* Gym.tri */,
+				8A6DE60519FE4E6D00CAD481 /* Kangaroo.tri */,
+				8A6DE60619FE4E6D00CAD481 /* Mig27.tri */,
+				8A6DE60719FE4E6D00CAD481 /* Plane.tri */,
+				8A6DE60819FE4E6D00CAD481 /* Plant.tri */,
+				8A6DE60919FE4E6D00CAD481 /* Readme.txt */,
+				8A6DE60A19FE4E6D00CAD481 /* Teapot.tri */,
+				8A6DE60B19FE4E6D00CAD481 /* Tomcat.tri */,
+			);
+			path = models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -118,7 +226,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8A6DE53E19FE32D600CAD481 /* main.cpp in Sources */,
+				8A6DE61819FE4E6D00CAD481 /* Transform.cpp in Sources */,
+				8A6DE61519FE4E6D00CAD481 /* Light.cpp in Sources */,
+				8A6DE61419FE4E6D00CAD481 /* controls.cpp in Sources */,
+				8A6DE61A19FE4E6D00CAD481 /* VBO.cpp in Sources */,
+				8A6DE61919FE4E6D00CAD481 /* TRIModel.cpp in Sources */,
+				8A6DE61719FE4E6D00CAD481 /* Shader.cpp in Sources */,
+				8A6DE61619FE4E6D00CAD481 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,6 +316,18 @@
 		8A6DE54219FE32D600CAD481 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					/usr/local/Cellar/glew/1.11.0/include,
+					/usr/local/Cellar/glm/0.9.5.4/include,
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"/usr/local/include/**",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Cellar/glew/1.11.0/lib,
+				);
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -209,6 +335,18 @@
 		8A6DE54319FE32D600CAD481 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					/usr/local/Cellar/glew/1.11.0/include,
+					/usr/local/Cellar/glm/0.9.5.4/include,
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"/usr/local/include/**",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Cellar/glew/1.11.0/lib,
+				);
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
